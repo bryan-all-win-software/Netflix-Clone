@@ -11,8 +11,11 @@ final class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+    }
+    
+    private func setUI() {
         view.backgroundColor = .systemBackground
-        
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         let upCommingViewController = UINavigationController(rootViewController: UpCommingViewController())
         let searchViewController = UINavigationController(rootViewController: SearchViewController())
@@ -30,8 +33,9 @@ final class MainTabBarViewController: UITabBarController {
         downloadViewController.title = "Downloads"
         downloadViewController.tabBarItem.image = UIImage(systemName: "arrow.down.to.line")
         
+        tabBar.tintColor = .label
+        
         setViewControllers([homeViewController, upCommingViewController, searchViewController, downloadViewController], animated: true)
-         
     }
 
 }
