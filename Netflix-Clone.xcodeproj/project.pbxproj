@@ -21,6 +21,9 @@
 		26DA523C291D9579005B8006 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA523B291D9579005B8006 /* DownloadViewController.swift */; };
 		26DA524D291EF54B005B8006 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA524B291EF54B005B8006 /* HeroHeaderUIView.swift */; };
 		26DA524E291EF54B005B8006 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA524C291EF54B005B8006 /* CollectionViewTableViewCell.swift */; };
+		26DA5251291FF5D0005B8006 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA5250291FF5D0005B8006 /* APIManager.swift */; };
+		26DA52532923E96E005B8006 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA52522923E96E005B8006 /* Variables.swift */; };
+		26DA525529245A0C005B8006 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA525429245A0C005B8006 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		26DA523B291D9579005B8006 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		26DA524B291EF54B005B8006 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		26DA524C291EF54B005B8006 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		26DA5250291FF5D0005B8006 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		26DA52522923E96E005B8006 /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Variables.swift; path = "Netflix-Clone/Manager/Variables.swift"; sourceTree = SOURCE_ROOT; };
+		26DA525429245A0C005B8006 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Netflix-Clone/Manager/Extensions.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 		26DA5248291EF4F4005B8006 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26DA52522923E96E005B8006 /* Variables.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 		26DA5249291EF4FC005B8006 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				26DA525429245A0C005B8006 /* Extensions.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 		26DA524A291EF501005B8006 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				26DA5250291FF5D0005B8006 /* APIManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -322,12 +331,15 @@
 			files = (
 				26DA523A291D9514005B8006 /* SearchViewController.swift in Sources */,
 				26DA524D291EF54B005B8006 /* HeroHeaderUIView.swift in Sources */,
+				26DA5251291FF5D0005B8006 /* APIManager.swift in Sources */,
 				26DA5209291D8EF5005B8006 /* MainTabBarViewController.swift in Sources */,
 				26DA5238291D94B7005B8006 /* UpCommingViewController.swift in Sources */,
 				26DA523C291D9579005B8006 /* DownloadViewController.swift in Sources */,
 				26DA524E291EF54B005B8006 /* CollectionViewTableViewCell.swift in Sources */,
+				26DA525529245A0C005B8006 /* Extensions.swift in Sources */,
 				26DA5205291D8EF5005B8006 /* AppDelegate.swift in Sources */,
 				26DA5207291D8EF5005B8006 /* SceneDelegate.swift in Sources */,
+				26DA52532923E96E005B8006 /* Variables.swift in Sources */,
 				26DA5236291D9460005B8006 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

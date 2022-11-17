@@ -3,4 +3,70 @@
    uuid = "F3908DC6-D599-4C8A-922E-1E7852EA2381"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A94B57ED-695C-47B0-8081-FCDC8AC752FF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Netflix-Clone/Manager/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "getRatedMovies(completition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32383FBB-FCD9-4A70-9D6F-C44B579FC2CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Netflix-Clone/Controller/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "fetchDataFromApi()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "32383FBB-FCD9-4A70-9D6F-C44B579FC2CC - 38124d07175a8044"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflix_Clone.HomeViewController.fetchDataFromApi() -&gt; ()"
+                  moduleName = "Netflix-Clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user-p2/Developer/Practice/Swift/Netflix-Clone/Netflix-Clone/Controller/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  uuid = "32383FBB-FCD9-4A70-9D6F-C44B579FC2CC - f0ab72c346a70a17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Netflix_Clone.Movie&gt;, Swift.Error&gt;) -&gt; () in Netflix_Clone.HomeViewController.fetchDataFromApi() -&gt; ()"
+                  moduleName = "Netflix-Clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user-p2/Developer/Practice/Swift/Netflix-Clone/Netflix-Clone/Controller/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
