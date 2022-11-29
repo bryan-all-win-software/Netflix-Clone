@@ -11,12 +11,14 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     
+    private var moviesOrTvs: [MovieOrTv] = []
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 140, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(MovieOrTvCollectionViewCell.self, forCellWithReuseIdentifier: MovieOrTvCollectionViewCell.identifier)
         
         return collectionView
     }()
@@ -37,17 +39,26 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         self.collectionView.frame = self.contentView.bounds
     }
+    
+    public func configure(with movieOrTv: [MovieOrTv]) {
+        self.moviesOrTvs = movieOrTv
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        self.moviesOrTvs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemRed
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieOrTvCollectionViewCell.identifier, for: indexPath) as? MovieOrTvCollectionViewCell else { return UICollectionViewCell()}
+        guard let modelImage = moviesOrTvs[indexPath.row].poster_path else { return UICollectionViewCell() }
+        cell.configureCell(url: modelImage)
         return cell
     }
     

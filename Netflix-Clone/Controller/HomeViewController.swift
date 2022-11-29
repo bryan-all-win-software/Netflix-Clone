@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum Sections: Int {
+    case PopularMovies = 0
+    case TrendingMovies = 1
+    case UpCommingMovies = 2
+    case ToRatedMovies = 3
+}
+
 final class HomeViewController: UIViewController {
     
     private let sectionHeaderTitles = [
@@ -39,7 +46,6 @@ final class HomeViewController: UIViewController {
         self.homeFeedTable.dataSource = self
         self.homeFeedTable.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 450))
         configureNavBar()
-        fetchDataFromApi()
     }
     
     private func configureNavBar() {
@@ -56,48 +62,8 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func playButtonPressed() {
-        fetchDataFromApi()
+        homeFeedTable.reloadData()
     }
-    
-    private func fetchDataFromApi() {
-        
-        APIManager.shared.getTrendingMovies { result in
-            switch result {
-            case .success(let trendingMovies): debugPrint(trendingMovies)
-            case .failure(let error): debugPrint(error)
-            }
-        }
-
-        APIManager.shared.getTrendingTvs { result in
-            switch result {
-            case .success(let trendingTvs): debugPrint(trendingTvs)
-            case .failure(let error): debugPrint(error)
-            }
-        }
-
-        APIManager.shared.getUpCommingMovies { result in
-            switch result {
-            case .success(let upComingMovies): debugPrint(upComingMovies)
-            case .failure(let error): debugPrint(error)
-            }
-        }
-
-        APIManager.shared.getPopularMovies { result in
-            switch result {
-            case .success(let popularMovies): debugPrint(popularMovies)
-            case .failure(let error): debugPrint(error)
-            }
-        }
-        
-        APIManager.shared.getRatedMovies { result in
-            switch result {
-            case .success(let ratedMovies): debugPrint(ratedMovies)
-            case .failure(let error): debugPrint(error)
-            }
-        }
-        
-    }
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -129,6 +95,48 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else { return UITableViewCell() }
+
+        switch indexPath.section {
+            
+        case Sections.PopularMovies.rawValue:
+            
+            APIManager.shared.getPopularMovies { result in
+                switch result {
+                case .success(let movieOrTv): cell.configure(with: movieOrTv)
+                case .failure(let error): debugPrint(error)
+                }
+            }
+            
+        case Sections.TrendingMovies.rawValue:
+            
+            APIManager.shared.getTrendingTvs { result in
+                switch result {
+                case .success(let movieOrTv): cell.configure(with: movieOrTv)
+                case .failure(let error): debugPrint(error)
+                }
+            }
+            
+        case Sections.UpCommingMovies.rawValue:
+            
+            APIManager.shared.getUpCommingMovies { result in
+                switch result {
+                case .success(let movieOrTv): cell.configure(with: movieOrTv)
+                case .failure(let error): debugPrint(error)
+                }
+            }
+            
+        case Sections.ToRatedMovies.rawValue:
+            
+            APIManager.shared.getRatedMovies { result in
+                switch result {
+                case .success(let movieOrTv): cell.configure(with: movieOrTv)
+                case .failure(let error): debugPrint(error)
+                }
+            }
+            
+        default:
+            debugPrint(NSLocalizedString("Doesn't get data from API Manager", comment: "Error fetching data from API"))
+        }
         return cell
     }
     

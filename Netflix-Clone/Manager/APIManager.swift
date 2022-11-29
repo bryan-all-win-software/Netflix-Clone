@@ -22,7 +22,7 @@ struct Constants {
     static let upCommingTvs: String = "3/tv/upcomming?api_key="
     static let popularMovies: String = "3/movie/popular?api_key="
     static let popularTvs: String = "3/tv/popular?api_key="
-    static let ratedMovies: String = "3/movie/top_rated?api_key="
+    static let ratedMovies: String = "3/movie/top_rated?api_key="	
     static let ratedTvs: String = "3/tv/top_rated?api_key="
     
 }
@@ -35,59 +35,59 @@ final class APIManager {
     
     static let shared = APIManager()
     
-    func getTrendingMovies(completition: @escaping (Result<[Variable], Error>) -> Void) {
+    func getTrendingMovies(completition: @escaping (Result<[MovieOrTv], Error>) -> Void) {
         guard let url = URL(string: Constants.urlBase + Constants.trendingMovies + Constants.API_Key) else { return }
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
-                let result = try JSONDecoder().decode(VariableRequest.self, from: data)
-                completition(.success(result.Variables))
+                let result = try JSONDecoder().decode(MovieOrTvRequest.self, from: data)
+                completition(.success(result.MoviesOrTvs))
             } catch {
                 completition(.failure(APIError.failedRequest))
             }
         }.resume()
     }
     
-    func getTrendingTvs(completition: @escaping (Result<[Variable], Error>) -> Void) {
+    func getTrendingTvs(completition: @escaping (Result<[MovieOrTv], Error>) -> Void) {
         guard let url = URL(string: Constants.urlBase + Constants.trendingTvs + Constants.API_Key) else { return }
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
-                let result = try JSONDecoder().decode(VariableRequest.self, from: data)
-                completition(.success(result.Variables))
+                let result = try JSONDecoder().decode(MovieOrTvRequest.self, from: data)
+                completition(.success(result.MoviesOrTvs))
             } catch { completition(.failure(APIError.failedRequest)) }
         }.resume()
     }
     
-    func getUpCommingMovies(completition: @escaping (Result<[Variable], Error>) -> Void) {
+    func getUpCommingMovies(completition: @escaping (Result<[MovieOrTv], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.urlBase + Constants.upCommingMovies + Constants.API_Key)&language=en-US&page=1") else { return }
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data , error == nil else { return }
                 do {
-                    let result = try JSONDecoder().decode(VariableRequest.self, from: data)
-                    completition(.success(result.Variables))
+                    let result = try JSONDecoder().decode(MovieOrTvRequest.self, from: data)
+                    completition(.success(result.MoviesOrTvs))
                 } catch { completition(.failure(error)) }
         }.resume()
     }
     
-    func getPopularMovies(completition: @escaping (Result<[Variable], Error>) -> Void) {
+    func getPopularMovies(completition: @escaping (Result<[MovieOrTv], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.urlBase + Constants.popularMovies + Constants.API_Key)&language=en-US&page=1") else { return }
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data , error == nil else { return }
                 do {
-                    let result = try JSONDecoder().decode(VariableRequest.self, from: data)
-                    completition(.success(result.Variables))
+                    let result = try JSONDecoder().decode(MovieOrTvRequest.self, from: data)
+                    completition(.success(result.MoviesOrTvs))
                 } catch { completition(.failure(APIError.failedRequest)) }
         }.resume()
     }
     
-    func getRatedMovies(completition: @escaping (Result<[Variable], Error>) -> Void) {
+    func getRatedMovies(completition: @escaping (Result<[MovieOrTv], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.urlBase + Constants.ratedMovies + Constants.API_Key)&language=en-US&page=1") else { return }
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
-                let result = try JSONDecoder().decode(VariableRequest.self, from: data)
-                completition(.success(result.Variables))
+                let result = try JSONDecoder().decode(MovieOrTvRequest.self, from: data)
+                completition(.success(result.MoviesOrTvs))
             } catch { completition(.failure(APIError.failedRequest)) }
         }.resume()
     }

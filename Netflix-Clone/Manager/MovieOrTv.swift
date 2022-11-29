@@ -7,17 +7,15 @@
 
 import Foundation
 
-struct VariableRequest: Codable {
-    let Variables: [Variable]
+struct MovieOrTvRequest: Codable {
+    let MoviesOrTvs: [MovieOrTv]
     
     enum CodingKeys: String, CodingKey {
-        
-        case Variables = "results"
-        
+        case MoviesOrTvs = "results"
     }
 }
 
-struct Variable: Codable {
+struct MovieOrTv: Codable {
     let id: Int
     let name: String?
     let title: String?
